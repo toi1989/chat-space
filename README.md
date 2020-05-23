@@ -12,6 +12,37 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+##messageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null:false,|
+|image|string|null: false,|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+- belongs_to :group
+- belongs_to :user
+
+##usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false|
+|email|string|njll: false|
+- has_many :groups, through: :groups_users
+- has_many :message
+
+##groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+- has_many :user, through: :groups_users
+
+##groups_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+- belongs_to :group
+- belongs_to :user
 
 * Database initialization
 
@@ -22,3 +53,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
