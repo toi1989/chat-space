@@ -12,11 +12,12 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+
 ##messageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null:false,|
-|image|string|null: false,|
+|body|text|null:false|
+|image|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 - belongs_to :group
@@ -26,7 +27,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
-|email|string|njll: false|
+|email|string|null: false|
 - has_many :groups, through: :groups_users
 - has_many :message
 
