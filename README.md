@@ -20,8 +20,9 @@ Things you may want to cover:
 |image|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-- belongs_to :group
-- belongs_to :user
+- belongs_to :groups
+- belongs_to :users
+- add_index :body
 
 ##usersテーブル
 |Column|Type|Options|
@@ -30,20 +31,23 @@ Things you may want to cover:
 |email|string|null: false|
 - has_many :groups, through: :groups_users
 - has_many :message
+- add_index :name
 
 ##groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|group|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
-- has_many :user, through: :groups_users
+- has_many :users, through: :groups_users
+- add_index :
 
 ##groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-- belongs_to :group
-- belongs_to :user
+- belongs_to :groups
+- belongs_to :users
 
 * Database initialization
 
