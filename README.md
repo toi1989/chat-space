@@ -13,39 +13,40 @@ Things you may want to cover:
 
 * Database creation
 
-##messageテーブル
+##messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null:false|
-|image|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|body|text|index:true,null:false|
+|image|string||
+|user_id|integer|null:false, foreign_key:true|
+|group_id|integer|null:false, foreign_key:true|
+###Assosiation
 - belongs_to :groups
 - belongs_to :users
-- add_index :body
 
 ##usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
-|email|string|null: false|
-- has_many :groups, through: :groups_users
-- has_many :message
-- add_index :name
+|name|string|index:true, null:false,unique:true|
+|email|string|null:false,unique:true|
+|password|string|null,false|
+###Assosiation
+- has_many :groups,through:groups_users
+- has_many :messages
 
 ##groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|group|string|null: false,unique:true|
+###Assosiation
 - has_many :users, through: :groups_users
-- add_index :
 
 ##groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
+###Assosiation
 - belongs_to :groups
 - belongs_to :users
 
