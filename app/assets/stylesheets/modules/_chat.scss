@@ -1,6 +1,9 @@
 .chat{
   width: calc(100vw - 300px);
   float: left;
+  a{
+    text-decoration: none;
+  }
   .header{
     box-sizing: border-box;
     background-color: $white;
@@ -34,6 +37,10 @@
       color:#38aef0;
       line-height: 40px;
       position: absolute;
+      a{
+        text-decoration: none;
+        color:#38aef0;
+      }
     }
   }
 
