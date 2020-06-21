@@ -1,0 +1,43 @@
+.chat
+  .header
+    .left-header
+      .left-header__title
+        グループ名
+      %ul.left-header__members
+        Member:
+        %li.member
+          メンバー名
+        %li.member
+          メンバー名
+        %li.member
+          メンバー名
+    .right-header
+      = link_to '#' do
+        Edit
+
+  .messages
+    .message
+      .upper-message
+        .upper-message__name
+          ユーザー名
+        .upper-message__date
+          2020/05/30
+      .lower-message
+        .lower-message__content
+          メッセージ
+      .upper-message
+        .upper-message__name
+          ユーザー名
+        .upper-message__date
+          2020/05/30
+      .lower-message
+        .lower-message__content
+          メッセージ
+
+  %form.form
+    .form__message
+      %input.form__message__text{type:"text", placeholder: "type a message"}
+      %label.form__message__image
+        = icon('fa','image',class: 'icon')
+        %input.hidden{type: 'file'}
+    %input.form__submit{type: 'submit', value: 'send'}
