@@ -4,8 +4,6 @@
       = current_user.name
     %ul.header__lists
       %li.list
-        =link_to '#' do
-          = icon('fa','edit',class: 'icon')
         = link_to new_group_path(current_user) do
           = icon('fas', 'edit', class: 'icon')
       %li.list
@@ -20,13 +18,3 @@
             =group.name
           .group__messag
             メッセージはまだありません。
-    -# .group
-    -#   .group__name
-    -#     グループ名
-    -#   .group__message
-    -#     新着メッセージ
-    -# .group
-    -#   .group__name
-    -#     グループ名
-    -#   .group__message
-    -#     新着メッセージ
