@@ -1,32 +1,5 @@
 .wrapper
   = render 'side_bar'
-
-.chat
-  .header
-    .left-header
-      .left-header__title
-        = @group.name
-      %ul.left-header__members
-        Member:
-        %li.member
-          - @group.users.each do |user|
-            =user.name
-
-    .right-header
-      = link_to edit_group_path(current_user) do
-        Edit
-
-  .messages
-    = render @messages
- 
-  .form
-    = form_for [@group, @message],html: {class: "form_js"} do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-      .form__mask
-        = f.label :image, class: 'form__mask__image' do
-          = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
-  -# = render 'main_chat'
+  = render 'main_chat'
   
   
